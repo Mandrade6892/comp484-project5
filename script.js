@@ -46,6 +46,15 @@ function initMap() {
     map.addListener("dblclick", checkAnswer);
     loadQuestion();
 }
+function checkAnswer(event) {
+  console.log("Map was double clicked");
+
+  const clickedLat = event.latLng.lat();
+  const clickedLng = event.latLng.lng();
+
+  console.log("Latitude:", clickedLat);
+  console.log("Longitude:", clickedLng);
+}
 
 function loadQuestion() {
     if (currentQuestion < locations.length) {
