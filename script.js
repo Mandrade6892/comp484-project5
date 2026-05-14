@@ -78,3 +78,4 @@ function checkAnswer(event) {
 
   currentQuestion++;
 }
+}
