@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: beige;
+  padding: 20px;
+}
+
+#map {
+  width: 700px;
+  height: 500px;
+  border: 2px solid black;
+}
+
+#message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#score {
+  margin-top: 15px;
+  font-size: 24px;
+}

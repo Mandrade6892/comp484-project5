@@ -16,7 +16,7 @@ const locations = [
       east: -118.5300,
       west: -118.5310
     }
-  }
+  },
   {
   name: "Addie Klotz Student Health Center",
   grid: "F3",
@@ -31,6 +31,30 @@ const locations = [
 let currentQuestion = 0;
 let correct = 0;
 let incorrect = 0;
+let map;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 34.2407, lng: -118.5293 },
+        zoom: 17,
+        disableDefaultUI: true,
+        draggable: false,
+        scrollwheel: false,
+        disableDoubleClickZoom: true
+    });
+
+    map.addListener("dblclick", checkAnswer);
+    loadQuestion();
+}
+
+function loadQuestion() {
+    if (currentQuestion < locations.length) {
+        document.getElementById("question").textContent = `Where is ${locations[currentQuestion].name}?`;
+    } else {
+        document.getElementById("question").textContent = "Quiz complete!";
+        document.getElementById("message").textContent = `Correct: ${correct}, Incorrect: ${incorrect}`;
+        map.removeListener("dblclick", checkAnswer);
+    }
 
 function checkAnswer(event) {
   const clickedLat = event.latLng.lat();

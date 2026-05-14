@@ -1,8 +1,25 @@
-<h1>Map Quiz</h1>
-<p>Please double click on the map where the location is:</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Map Quiz</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Map Quiz</h1>
+    <p>Please double click on the map where the location is:</p>
 
 <h2 id="question">Loading...</h2>
 <div id="message"></div>
 <div id="score"></div>
 
 <div id="map"></div>
+
+<script src="script.js"></script>
+
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+    async
+    defer></script>
+</body>
+</html>
