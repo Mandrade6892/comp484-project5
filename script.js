@@ -34,6 +34,8 @@ let currentQuestion = 0;
 let correct = 0;
 let incorrect = 0;
 let map;
+let timer = 0;
+let timerInterval;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -47,6 +49,14 @@ function initMap() {
 
   map.addListener("dblclick", checkAnswer);
   loadQuestion();
+
+  startTimer();
+}
+function startTimer() {
+     timerInterval = setInterval(function () {
+    timer++;
+    document.getElementById("timer").textContent = `Time: ${timer} seconds`;
+  }, 1000);
 }
 
 function loadQuestion() {
@@ -64,9 +74,6 @@ function checkAnswer(event) {
   const clickedLat = event.latLng.lat();
   const clickedLng = event.latLng.lng();
 
-  console.log("Latitude:", clickedLat);
-  console.log("Longitude:", clickedLng);
-
   const answer = locations[currentQuestion];
 
   const isCorrect =
@@ -74,6 +81,14 @@ function checkAnswer(event) {
     clickedLat >= answer.bounds.south &&
     clickedLng <= answer.bounds.east &&
     clickedLng >= answer.bounds.west;
+
+  new google.maps.Rectangle({
+    bounds: answer.bounds,
+    map: map,
+    fillColor: isCorrect ? "green" : "red",
+    fillOpacity: 0.35,
+    strokeWeight: 2
+  });
 
   if (isCorrect) {
     correct++;
