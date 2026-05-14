@@ -9,24 +9,25 @@ const locations = [
     }
   },
   {
-    name: "Bayramian Hall",
-    bounds: {
-      north: 34.2408,
-      south: 34.2402,
-      east: -118.5300,
-      west: -118.5310
-    }
-  },
-  {
-    name: "Addie Klotz Student Health Center",
-    grid: "F3",
-    bounds: {
-      north: 34.2407,
-      south: 34.2399,
-      east: -118.5253,
-      west: -118.5264
-    }
+    
+  name: "Bayramian Hall",
+  bounds: {
+    north: 34.2413,
+    south: 34.2397,
+    east: -118.5292,
+    west: -118.5317
   }
+},
+{
+  name: "Addie Klotz Student Health Center",
+  grid: "F3",
+  bounds: {
+    north: 34.2412,
+    south: 34.2394,
+    east: -118.5247,
+    west: -118.5269
+  }
+}
 ];
 
 let currentQuestion = 0;
