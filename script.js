@@ -2,10 +2,10 @@ const locations = [
   {
     name: "Bookstore",
     bounds: {
-      north: 34.2400,
-      south: 34.2365,
-      east: -118.5245,
-      west: -118.5285
+        north: 34.2378,
+        south: 34.2369,
+        east: -118.5277,
+        west: -118.5287
     }
   },
   {
@@ -19,7 +19,7 @@ const locations = [
   }
 },
 {
-  name: "Addie Klotz Student Health Center",
+  name: "Student Recreation Center",
   grid: "F3",
   bounds: {
     north: 34.2412,
@@ -27,6 +27,24 @@ const locations = [
     east: -118.5247,
     west: -118.5269
   }
+},
+{
+    name: "Klotz Student Health Center",
+    bounds: {
+        north: 34.2386,
+        south: 34.2378,
+        east: -118.5259,
+        west: -118.5269
+    }
+},
+{
+    name: "Jacaranda Hall",
+    bounds: {
+        north: 34.2419,
+        south: 34.2409,
+        east: -118.5278,
+        west: -118.5288
+    }
 }
 ];
 
@@ -64,15 +82,27 @@ function loadQuestion() {
     document.getElementById("question").textContent =
       `Where is ${locations[currentQuestion].name}?`;
   } else {
+    clearInterval(timerInterval);
+
     document.getElementById("question").textContent = "Quiz complete!";
     document.getElementById("message").textContent =
       `Correct: ${correct}, Incorrect: ${incorrect}`;
+    
   }
 }
 
 function checkAnswer(event) {
+    if (currentQuestion >= locations.length) {
+        return;
+    }
+    console.log("Double Click detected");
+
   const clickedLat = event.latLng.lat();
   const clickedLng = event.latLng.lng();
+
+  console.log("Latitude:", clickedLat);
+  console.log("Longitude:", clickedLng);
+
 
   const answer = locations[currentQuestion];
 
