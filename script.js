@@ -74,6 +74,14 @@ function initMap() {
 
     zoom: 16.7,
 
+    styles: [
+    {
+      featureType: "all",
+      elementType: "labels",
+      stylers: [{ visibility: "off" }]
+    }
+  ],
+
     // removes extra UI because I wanted the map cleaner and more focused
     disableDefaultUI: true,
 
